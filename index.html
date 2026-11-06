@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- CONFIGURACIÓN DEL DOCUMENTO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#071329">
+    <meta name="description" content="FinanzaPro, administra tus finanzas personales de manera sencilla.">
+
+    <title>FinanzaPro | Inicio</title>
+
+    <!-- FUENTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JAVASCRIPT -->
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="app-shell">
+
+        <!-- ENCABEZADO -->
+        <header class="topbar">
+
+            <a href="#" class="brand" aria-label="FinanzaPro - Inicio">
+                <span class="brand-icon">
+                    <i class="fa-solid fa-chart-column"></i>
+                </span>
+
+                <span class="brand-name">FinanzaPro</span>
+            </a>
+
+            <button class="icon-button" id="menu-button" type="button" aria-label="Abrir menú" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </header>
+
+        <!-- MENÚ RÁPIDO -->
+        <div class="quick-menu" id="quick-menu" hidden>
+
+            <a href="#balance">Resumen de cuenta</a>
+            <a href="#spending">Gastos del mes</a>
+            <a href="#transactions">Últimos movimientos</a>
+
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="dashboard">
+
+            <!-- SALDO TOTAL -->
+            <section class="balance-card" id="balance" aria-labelledby="balance-title">
+
+                <div class="balance-content">
+
+                    <p class="eyebrow" id="balance-title">Saldo total</p>
+                    <p class="balance-amount">$12,500.00</p>
+                    <p class="balance-change">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        <span>12% este mes</span>
+                    </p>
+
+                </div>
+
+                <!-- GRÁFICA DECORATIVA -->
+                <svg class="balance-chart" viewBox="0 0 180 100" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 82 C22 78 25 62 47 65 S75 55 91 48 S112 18 132 30 S155 20 180 4" fill="none" stroke="#39b6ff" stroke-width="3" stroke-linecap="round" />
+                </svg>
+
+            </section>
+
+            <!-- RESUMEN DE INGRESOS Y GASTOS -->
+            <section class="summary-grid" aria-label="Resumen de ingresos y gastos">
+
+                <!-- INGRESOS -->
+                <article class="metric-card income-card">
+
+                    <span class="metric-icon">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </span>
+
+                    <div class="metric-info">
+                        <p class="metric-label">Ingresos</p>
+                        <p class="metric-value">$8,500</p>
+                    </div>
+
+                </article>
+
+                <!-- GASTOS -->
+                <article class="metric-card expense-card">
+
+                    <span class="metric-icon">
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </span>
+
+                    <div class="metric-info">
+                        <p class="metric-label">Gastos</p>
+                        <p class="metric-value">$6,200</p>
+                    </div>
+
+                </article>
+
+            </section>
+
+            <!-- RESUMEN DEL MES -->
+            <section class="panel spending-panel" id="spending" aria-labelledby="spending-title">
+
+                <!-- ENCABEZADO DE SECCIÓN -->
+                <div class="section-heading">
+
+                    <div class="section-title">
+                        <p class="section-kicker">Tu actividad</p>
+                        <h2 id="spending-title">Resumen del mes</h2>
+                    </div>
+
+                    <button class="text-button" type="button" data-message="Los reportes estarán disponibles próximamente.">
+                        Ver detalles
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+                <!-- CONTENIDO DE LA GRÁFICA -->
+                <div class="spending-content">
+
+                    <!-- GRÁFICA CIRCULAR -->
+                    <div class="donut-chart" role="img" aria-label="Distribución de gastos: comida 35%, transporte 25%, compras 20%, otros 20%">
+                        <div class="donut-hole">
+                            <span>Gastos</span>
+                            <strong>$6,200</strong>
+                        </div>
+                    </div>
+
+                    <!-- CATEGORÍAS -->
+                    <ul class="category-list">
+
+                        <li>
+                            <span class="category-name">
+                                <i class="category-dot food"></i> Comida
+                            </span>
+
+                            <strong>35%</strong>
+                        </li>
+
+                        <li>
+                            <span class="category-name">
+                                <i class="category-dot transport-dot"></i> Transporte
+                            </span>
+
+                            <strong>25%</strong>
+                        </li>
+
+                        <li>
+                            <span class="category-name">
+                                <i class="category-dot shopping"></i> Compras
+                            </span>
+
+                            <strong>20%</strong>
+                        </li>
+
+                        <li>
+                            <span class="category-name">
+                                <i class="category-dot other"></i> Otros
+                            </span>
+
+                            <strong>20%</strong>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+            <!-- ÚLTIMAS TRANSACCIONES -->
+            <section class="panel transactions-panel" id="transactions" aria-labelledby="transactions-title">
+
+                <!-- ENCABEZADO DE SECCIÓN -->
+                <div class="section-heading">
+
+                    <div class="section-title">
+                        <p class="section-kicker">Movimientos recientes</p>
+                        <h2 id="transactions-title">Últimas transacciones</h2>
+                    </div>
+
+                    <button class="text-button" type="button" data-message="La lista completa estará disponible próximamente.">
+                        Ver todas <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+                <!-- LISTA DE TRANSACCIONES -->
+                <ul class="transaction-list">
+
+                    <!-- SALARIO -->
+                    <li class="transaction-item">
+                        <span class="transaction-icon salary">
+                            <i class="fa-solid fa-money-bill-wave"></i>
+                        </span>
+
+                        <div class="transaction-info">
+                            <strong>Salario</strong>
+                            <span>Hoy · 9:30 AM</span>
+                        </div>
+
+                        <strong class="transaction-amount positive">
+                            + $8,500
+                        </strong>
+                    </li>
+
+                    <!-- SUPERMERCADO -->
+                    <li class="transaction-item">
+                        <span class="transaction-icon market">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </span>
+
+                        <div class="transaction-info">
+                            <strong>Supermercado</strong>
+                            <span>Ayer · 6:15 PM</span>
+                        </div>
+
+                        <strong class="transaction-amount negative">
+                            - $1,200
+                        </strong>
+                    </li>
+
+                    <!-- TRANSPORTE -->
+                    <li class="transaction-item">
+                        <span class="transaction-icon transport">
+                            <i class="fa-solid fa-bus"></i>
+                        </span>
+
+                        <div class="transaction-info">
+                            <strong>Transporte</strong>
+                            <span>Ayer · 8:20 AM</span>
+                        </div>
+
+                        <strong class="transaction-amount negative">
+                            -$180
+                        </strong>
+                    </li>
+
+                </ul>
+
+            </section>
+
+        </main>
+
+        <!-- NAVEGACIÓN INFERIOR -->
+        <nav class="bottom-nav" aria-label="Navegación principal">
+
+            <!-- INICIO -->
+            <button class="nav-item active" type="button" aria-current="page" data-message="Ya estás en Inicio.">
+                <i class="fa-solid fa-house"></i>
+                <span>Inicio</span>
+            </button>
+
+            <!-- TRANSACCIONES -->
+            <button class="nav-item" type="button" data-message="Próximamente: Transacciones.">
+                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                <span>Transacciones</span>
+            </button>
+
+            <!-- REPORTES -->
+            <button class="nav-item" type="button" data-message="Próximamente: Reportes.">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Reportes</span>
+            </button>
+
+            <!-- CONFIGURACIÓN -->
+            <button class="nav-item" type="button" data-message="Próximamente: Configuración.">
+                <i class="fa-solid fa-gear"></i>
+                <span>Configuración</span>
+            </button>
+
+            <!-- PERFIL -->
+            <button class="nav-item" type="button" data-message="Próximamente: Perfil.">
+                <i class="fa-solid fa-user"></i>
+                <span>Perfil</span>
+            </button>
+
+        </nav>
+
+        <!-- NOTIFICACIONES -->
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    </div>
+
+</body>
+</html>

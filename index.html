@@ -2,129 +2,125 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="theme-color" content="#F1F5F9">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FinanzaPro: administra tus finanzas personales">
+    <meta name="theme-color" content="#f5f7ff">
+    <meta name="description" content="FinanzaPro, administra tus finanzas personales de manera sencilla.">
     <title>FinanzaPro | Finanzas personales</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/app.js" defer></script>
 </head>
 <body>
     <div class="app-shell">
-
-        <!-- ENCABEZADO -->
-
         <header class="topbar">
-            <a class="brand" href="#" data-view-link="inicio" aria-label="FinanzaPro inicio">
-                <span class="brand-mark">
-                    <i class="fa-solid fa-chart-column"></i>
-                </span>
+
+            <a class="brand" href="#inicio" aria-label="FinanzaPro, inicio">
+                <span class="brand-mark"><i class="fa-solid fa-chart-column"></i></span>
                 <span>FinanzaPro</span>
             </a>
 
-            <button class="icon-button menu-toggle" id="menu-button" aria-label="Abrir menú" aria-expanded="false">
+            <button class="icon-button menu-toggle" id="menu-button" type="button" aria-label="Abrir menú" aria-expanded="false">
                 <i class="fa-solid fa-bars"></i>
             </button>
+
+            <div class="quick-menu" id="quick-menu" hidden>
+                <button type="button" data-view-link="inicio">
+                    <i class="fa-solid fa-house"></i> Inicio
+                </button>
+
+                <button type="button" data-view-link="transacciones">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i> Transacciones
+                </button>
+
+                <button type="button" data-view-link="reportes">
+                    <i class="fa-solid fa-chart-simple"></i> Reportes
+                </button>
+
+                <button type="button" data-view-link="configuracion">
+                    <i class="fa-solid fa-gear"></i> Configuración
+                </button>
+
+                <button type="button" data-view-link="perfil">
+                    <i class="fa-solid fa-user"></i> Perfil
+                </button>
+            </div>
+            
         </header>
 
-
-        <!-- MENÚ -->
-
-        <div class="quick-menu" id="quick-menu" hidden>
-            <button data-view-link="inicio">
-                <i class="fa-solid fa-house"></i> Inicio
-            </button>
-
-            <button data-view-link="transacciones">
-                <i class="fa-solid fa-arrow-right-arrow-left"></i> Transacciones
-            </button>
-
-            <button data-view-link="reportes">
-                <i class="fa-solid fa-chart-pie"></i> Reportes
-            </button>
-
-            <button data-view-link="configuracion">
-                <i class="fa-solid fa-gear"></i> Configuración
-            </button>
-
-            <button data-view-link="perfil">
-                <i class="fa-solid fa-user"></i> Perfil
-            </button>
-        </div>
-
         <main class="main-content">
-
-
-            <!-- INICIO -->
 
             <section class="view active" id="view-inicio" data-view="inicio">
 
                 <div class="welcome-row">
                     <div>
-                        <p class="eyebrow">RESUMEN GENERAL</p>
-                        <h1>¡Hola, Usuario!</h1>
+                        <p class="eyebrow">TU RESUMEN FINANCIERO</p>
+                        <h1>¡Hola!</h1>
+                        <p class="date-label" id="today-label">Este es tu resumen</p>
                     </div>
 
-                    <span class="date-pill" id="today-label">Este mes</span>
+                    <button class="round-action" id="home-add-button" type="button" aria-label="Agregar transacción">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
                 </div>
 
                 <article class="balance-card">
                     <div class="balance-copy">
-                        <span>Saldo total</span>
-                        <strong id="total-balance">$12,500.00</strong>
-                        <small class="positive">
-                            <i class="fa-solid fa-arrow-trend-up"></i><span id="balance-change">12%</span> este mes
-                        </small>
+                        <p>Saldo Total</p>
+                        <h2 id="total-balance">$12,500.00</h2>
+                        <span class="balance-change" id="balance-change">
+                            <i class="fa-solid fa-arrow-trend-up"></i> +12% este mes
+                        </span>
                     </div>
 
-                    <svg class="balance-wave" viewBox="0 0 220 100" preserveAspectRatio="none" aria-hidden="true">
-                        <path d="M0 78 C25 72 31 34 58 46 S92 73 119 44 S154 50 178 25 S204 20 220 4" />
+                    <svg class="balance-wave" viewBox="0 0 320 130" preserveAspectRatio="none" aria-hidden="true">
+                        <defs><linearGradient id="waveFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".28"/>
+                        <stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient></defs>
+                        <path d="M0 112 C45 92 55 95 88 82 S130 83 164 56 S210 70 246 36 S290 10 320 5 L320 130 L0 130Z" fill="url(#waveFill)"/>
+                        <path d="M0 112 C45 92 55 95 88 82 S130 83 164 56 S210 70 246 36 S290 10 320 5" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
                     </svg>
                 </article>
 
                 <div class="metric-grid">
                     <article class="metric-card income-card">
                         <span class="metric-icon">
-                            <i class="fa-solid fa-arrow-down"></i>
+                            <i class="fa-solid fa-arrow-up"></i>
                         </span>
+
                         <div>
-                            <span>Ingresos</span>
-                            <strong id="total-income">$8,500</strong>
+                            <p>Ingresos</p>
+                            <strong id="total-income">$8,500.00</strong>
                         </div>
                     </article>
 
                     <article class="metric-card expense-card">
                         <span class="metric-icon">
-                            <i class="fa-solid fa-arrow-up"></i>
+                            <i class="fa-solid fa-arrow-down"></i>
                         </span>
+
                         <div>
-                            <span>Gastos</span>
-                            <strong id="total-expense">$6,200</strong>
+                            <p>Gastos</p>
+                            <strong id="total-expense">$6,200.00</strong>
                         </div>
                     </article>
                 </div>
 
                 <section class="panel">
                     <div class="section-heading">
-                        <div>
-                            <p class="eyebrow">TUS FINANZAS</p>
-                            <h2>Resumen del mes</h2>
-                        </div>
-
-                        <button class="text-button" data-view-link="reportes"> 
+                        <h2>Resumen del Mes</h2>
+                        <button class="text-button" type="button" data-view-link="reportes">
                             Ver detalles <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
-                    
-                    <div class="category-summary">
-                        <div class="donut-chart" id="home-donut">
-                            <div class="donut-hole">
-                                <strong id="home-donut-total">$6,200</strong>
-                                <span>Gastos</span>
+
+                    <div class="summary-content">
+                        <div class="donut-wrap">
+                            <div class="donut-chart" id="home-donut">
+                                <div class="donut-hole">
+                                    <span>Gastos</span>
+                                    <strong id="home-donut-total">$6,200</strong>
+                                </div>
                             </div>
                         </div>
 
@@ -132,112 +128,97 @@
                     </div>
                 </section>
 
-                <section class="panel">
+                <section class="panel transactions-panel">
                     <div class="section-heading">
-                        <div>
-                            <p class="eyebrow">MOVIMIENTOS RECIENTES</p>
-                            <h2>Últimas transacciones</h2>
-                        </div>
-                        <button class="text-button" data-view-link="transacciones">
+                        <h2>Últimas Transacciones</h2>
+                        <button class="text-button" type="button" data-view-link="transacciones">
                             Ver todas <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
 
                     <div class="transaction-list compact-list" id="home-transactions"></div>
                 </section>
+
             </section>
 
 
             <!-- TRANSACCIONES -->
 
             <section class="view" id="view-transacciones" data-view="transacciones">
-                <div class="page-heading">
-                    <div>
-                        <p class="eyebrow">MOVIMIENTOS</p>
-                        <h1>
-                            <i class="fa-solid fa-arrow-right-arrow-left heading-icon"></i> Transacciones
-                        </h1>
-                    </div>
 
-                    <button class="icon-button filter-button" id="transaction-search-toggle" aria-label="Buscar transacciones">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                <div class="page-heading">
+                    <p class="eyebrow">MOVIMIENTOS</p>
+                    <h1>Transacciones</h1>
+                    <p>Consulta y administra tus ingresos y gastos.</p>
+                </div>
+
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input id="transaction-search" type="search" placeholder="Buscar transacción...">
+                </div>
+
+                <div class="filter-row" id="transaction-filters">
+                    <button class="filter-chip active" type="button" data-filter="todos">Todos</button>
+                    <button class="filter-chip" type="button" data-filter="ingreso">Ingresos</button>
+                    <button class="filter-chip" type="button" data-filter="gasto">Gastos</button>
+                </div>
+
+                <div class="list-heading">
+                    <span id="transaction-count">0 movimientos</span>
+                    <button class="text-button" id="add-transaction-button" type="button">
+                        <i class="fa-solid fa-plus"></i> Agregar
                     </button>
                 </div>
 
-                <label class="search-box" id="transaction-search-wrap" hidden>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input id="transaction-search" type="search" placeholder="Buscar movimiento...">
-                </label>
-
-                <div class="segmented-control" id="transaction-filters">
-                    <button class="selected" data-filter="todas">Todas</button>
-                    <button data-filter="ingreso">Ingresos</button>
-                    <button data-filter="gasto">Gastos</button>
+                <div class="panel transaction-page-panel">
+                    <div class="transaction-list" id="all-transactions"></div>
                 </div>
 
-                <div class="list-meta">
-                    <span id="transaction-count">0 movimientos</span>
-                    <span>Más recientes</span>
-                </div>
-
-                <div class="transaction-list full-list" id="all-transactions"></div>
-
-                <button class="floating-add" id="add-transaction-button" aria-label="Agregar transacción">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
             </section>
 
 
             <!-- REPORTES -->
 
             <section class="view" id="view-reportes" data-view="reportes">
+
                 <div class="page-heading">
-                    <div>
-                        <p class="eyebrow">ANÁLISIS FINANCIERO</p>
-                        <h1>Reportes</h1>
-                    </div>
-
-                    <button class="icon-button" id="report-date-button" aria-label="Periodo actual">
-                        <i class="fa-regular fa-calendar"></i>
-                    </button>
+                    <p class="eyebrow">ANÁLISIS</p>
+                    <h1>Reportes</h1>
+                    <p>Conoce cómo se mueve tu dinero.</p>
                 </div>
 
-                <div class="segmented-control period-control" id="report-periods">
-                    <button data-period="7">7D</button>
-                    <button class="selected" data-period="30">30D</button>
-                    <button data-period="90">90D</button>
-                    <button data-period="365">1A</button>
+                <div class="filter-row period-row" id="report-periods">
+                    <button class="filter-chip active" type="button" data-period="mes">Este mes</button>
+                    <button class="filter-chip" type="button" data-period="semana">Semana</button>
+                    <button class="filter-chip" type="button" data-period="anio">Año</button>
                 </div>
 
-                <section class="panel chart-panel">
+                <section class="panel">
                     <div class="section-heading">
-                        <div>
-                            <h2>Gastos vs Ingresos</h2>
-                            <p class="subtle" id="report-period-label">Últimos 30 días</p>
-                        </div>
+                        <h2>Ingresos y gastos</h2>
+                        <span class="small-muted" id="report-period-label">Resumen mensual</span>
                     </div>
 
-                    <div class="chart-legend">
-                        <span><i class="legend-dot income-dot"></i> Ingresos</span>
-                        <span><i class="legend-dot expense-dot"></i> Gastos</span>
-                    </div>
+                    <div class="bar-chart" id="bar-chart"></div>
 
-                    <div class="bar-chart" id="bar-chart" aria-label="Gráfica de ingresos y gastos"></div>
+                    <div class="chart-key">
+                        <span><i class="key-dot income-dot"></i>Ingresos</span>
+                        <span><i class="key-dot expense-dot"></i>Gastos</span>
+                    </div>
                 </section>
 
                 <section class="panel">
                     <div class="section-heading">
-                        <div>
-                            <h2>Categorías</h2>
-                            <p class="subtle">Distribución de tus gastos</p>
-                        </div>
+                        <h2>Distribución de gastos</h2>
                     </div>
 
-                    <div class="category-summary report-categories">
-                        <div class="donut-chart" id="report-donut">
-                            <div class="donut-hole">
-                                <strong id="report-donut-total">$6,200</strong>
-                                <span>Total</span>
+                    <div class="summary-content report-summary">
+                        <div class="donut-wrap">
+                            <div class="donut-chart" id="report-donut">
+                                <div class="donut-hole">
+                                    <span>Total</span>
+                                    <strong id="report-donut-total">$0</strong>
+                                </div>
                             </div>
                         </div>
 
@@ -245,182 +226,141 @@
                     </div>
                 </section>
 
-                <section class="panel insight-panel">
-                    <span class="insight-icon">
+                <div class="tip-card">
+                    <span class="tip-icon">
                         <i class="fa-solid fa-lightbulb"></i>
                     </span>
-
+                    
                     <div>
-                        <h3>Consejo financiero</h3>
-                        <p id="financial-tip">Lleva un registro de tus gastos para identificar oportunidades de ahorro.</p>
+                        <strong>Consejo financiero</strong>
+                        <p id="financial-tip">Registrar tus gastos te ayuda a identificar oportunidades de ahorro.</p>
                     </div>
-                </section>
+                </div>
+
             </section>
 
 
             <!-- CONFIGURACIÓN -->
 
             <section class="view" id="view-configuracion" data-view="configuracion">
+
                 <div class="page-heading">
-                    <div>
-                        <p class="eyebrow">PREFERENCIAS</p>
-                        <h1>
-                            <i class="fa-solid fa-gear heading-icon"></i> Configuración
-                        </h1>
-                    </div>
+                    <p class="eyebrow">PREFERENCIAS</p>
+                    <h1>Configuración</h1>
+                    <p>Personaliza tu experiencia.</p>
                 </div>
 
-                <div class="settings-list">
-                    <button class="setting-item" data-setting="general">
-                        <span class="setting-icon blue">
-                            <i class="fa-solid fa-sliders"></i>
+                <section class="panel settings-panel">
+
+                    <div class="setting-item">
+                        <span class="setting-icon">
+                            <i class="fa-solid fa-palette"></i>
                         </span>
 
-                        <span>
-                            <strong>General</strong>
-                            <small>Idioma, moneda y preferencias</small>
+                        <div>
+                            <strong>Apariencia</strong>
+                            <small>Interfaz clara</small>
+                        </div>
+
+                        <span class="setting-value">Light</span>
+                    </div>
+
+                    <div class="setting-item">
+                        <span class="setting-icon">
+                            <i class="fa-solid fa-coins"></i>
                         </span>
 
-                        <i class="fa-solid fa-chevron-right setting-arrow"></i>
-                    </button>
+                        <div>
+                            <strong>Moneda</strong>
+                            <small>Moneda de tus registros</small>
+                        </div>
 
-                    <button class="setting-item" data-setting="notifications">
-                        <span class="setting-icon purple">
+                        <span class="setting-value">MXN</span>
+                    </div>
+
+                    <div class="setting-item">
+                        <span class="setting-icon">
                             <i class="fa-solid fa-bell"></i>
                         </span>
-                        
-                        <span>
+
+                        <div>
                             <strong>Notificaciones</strong>
-                            <small>Alertas y recordatorios</small>
+                            <small>Recordatorios y avisos</small>
+                        </div>
+
+                        <span class="setting-value">Activas</span>
+                    </div>
+
+                    <button class="setting-item setting-button" id="export-button" type="button">
+                        <span class="setting-icon">
+                            <i class="fa-solid fa-file-export"></i>
                         </span>
-                        
-                        <i class="fa-solid fa-chevron-right setting-arrow"></i>
+
+                        <div>
+                            <strong>Exportar movimientos</strong>
+                            <small>Descarga tus transacciones en CSV</small>
+                        </div>
+
+                        <i class="fa-solid fa-chevron-right"></i>
                     </button>
 
-                    <button class="setting-item" data-setting="categories">
-                        <span class="setting-icon orange">
-                            <i class="fa-solid fa-tags"></i>
+                    <button class="setting-item setting-button" id="reset-button" type="button">
+                        <span class="setting-icon danger-icon">
+                            <i class="fa-solid fa-trash-can"></i>
                         </span>
-                        
-                        <span>
-                            <strong>Categorías</strong>
-                            <small>Gestiona tus categorías</small>
-                        </span>
-                        
-                        <i class="fa-solid fa-chevron-right setting-arrow"></i>
+
+                        <div>
+                            <strong>Restablecer datos</strong>
+                            <small>Volver a los datos de ejemplo</small>
+                        </div>
+
+                        <i class="fa-solid fa-chevron-right"></i>
                     </button>
 
-                    <button class="setting-item" data-setting="backup">
-                        <span class="setting-icon green">
-                            <i class="fa-solid fa-cloud-arrow-down"></i>
-                        </span>
-                        
-                        <span>
-                            <strong>Respaldo de datos</strong>
-                            <small>Exporta o importa tus datos</small>
-                        </span>
-                        
-                        <i class="fa-solid fa-chevron-right setting-arrow"></i>
-                    </button>
-
-                    <button class="setting-item" data-setting="theme">
-                        <span class="setting-icon yellow">
-                            <i class="fa-solid fa-circle-half-stroke"></i>
-                        </span>
-                        
-                        <span>
-                            <strong>Tema</strong>
-                            <small>Modo claro u oscuro</small>
-                        </span>
-                        
-                        <i class="fa-solid fa-chevron-right setting-arrow"></i>
-                    </button>
-                </div>
-
-                <button class="logout-button" id="logout-button">
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión
-                </button>
-
-                <p class="settings-note">Tus datos se guardan localmente en este dispositivo.</p>
+                </section>
             </section>
 
 
             <!-- PERFIL -->
+
             <section class="view" id="view-perfil" data-view="perfil">
+
                 <div class="page-heading">
-                    <div>
-                        <p class="eyebrow">TU CUENTA</p>
-                        <h1>
-                            <i class="fa-solid fa-user heading-icon"></i> Perfil
-                        </h1>
-                    </div>
-                    
-                    <button class="icon-button" id="edit-profile-button" aria-label="Editar perfil">
-                        <i class="fa-solid fa-pen"></i>
-                    </button>
+                    <p class="eyebrow">TU CUENTA</p>
+                    <h1>Perfil</h1>
+                    <p>Información de tu cuenta personal.</p>
                 </div>
 
-                <div class="profile-hero">
-                    <div class="avatar">
+                <section class="panel profile-panel">
+                    <div class="profile-avatar">
                         <i class="fa-solid fa-user"></i>
                     </div>
-                    
-                    <h2 id="profile-name-heading">Usuario</h2>
-                    <p id="profile-email-heading">usuario@ejemplo.com</p>
-                </div>
 
-                <section class="profile-section">
-                    <h3>Información</h3>
-                    
-                    <div class="info-card">
-                        <div>
-                            <span>Nombre</span>
-                            <strong id="profile-name">Usuario</strong>
-                        </div>
-                        
-                        <div>
-                            <span>Correo</span>
-                            <strong id="profile-email">usuario@ejemplo.com</strong>
-                        </div>
-                    </div>
+                    <h2 id="profile-name-heading">Usuario FinanzaPro</h2>
+                    <p id="profile-email-heading">usuario@finanzapro.com</p>
+
+                    <button class="primary-outline-button" id="edit-profile-button" type="button">
+                        Editar perfil
+                    </button>
                 </section>
 
-                <section class="profile-section">
-                    <h3>Estadísticas</h3>
+                <section class="profile-stats">
+                    <article class="panel">
+                        <strong id="profile-count">3</strong>
+                        <span>Movimientos</span>
+                    </article>
 
-                    <div class="info-card stats-card">
-                        <div>
-                            <span class="stat-icon green">
-                                <i class="fa-solid fa-arrow-right-arrow-left"></i>
-                            </span>
-                            
-                            <span>Total de transacciones</span>
-                            <strong id="profile-count">0</strong>
-                        </div>
-                        
-                        <div>
-                            <span class="stat-icon purple">
-                                <i class="fa-solid fa-gift"></i>
-                            </span>
-                            
-                            <span>Mes actual</span>
-                            <strong id="profile-month">$12,500</strong>
-                        </div>
-                        
-                        <div>
-                            <span class="stat-icon green">
-                                <i class="fa-solid fa-piggy-bank"></i>
-                            </span>
-                            
-                            <span>Ahorro este mes</span>
-                            <strong id="profile-savings">$2,300</strong>
-                        </div>
-                    </div>
+                    <article class="panel">
+                        <strong id="profile-month">1</strong>
+                        <span>Mes activo</span>
+                    </article>
+
+                    <article class="panel">
+                        <strong id="profile-savings">$2,300</strong>
+                        <span>Balance neto</span>
+                    </article>
                 </section>
 
-                <button class="primary-button edit-profile-wide" id="edit-profile-wide">
-                    <i class="fa-solid fa-pen"></i> Editar perfil
-                </button>
             </section>
         </main>
 
@@ -428,88 +368,92 @@
         <!-- NAVEGACIÓN INFERIOR -->
 
         <nav class="bottom-nav" aria-label="Navegación principal">
-            <button class="nav-item active" data-nav="inicio">
+
+            <button class="nav-item active" type="button" data-nav="inicio">
                 <i class="fa-solid fa-house"></i>
                 <span>Inicio</span>
             </button>
 
-            <button class="nav-item" data-nav="transacciones">
+            <button class="nav-item" type="button" data-nav="transacciones">
                 <i class="fa-solid fa-arrow-right-arrow-left"></i>
                 <span>Transacciones</span>
             </button>
 
-            <button class="nav-item" data-nav="reportes">
+            <button class="nav-item" type="button" data-nav="reportes">
                 <i class="fa-solid fa-chart-column"></i>
                 <span>Reportes</span>
             </button>
 
-            <button class="nav-item" data-nav="configuracion">
+            <button class="nav-item" type="button" data-nav="configuracion">
                 <i class="fa-solid fa-gear"></i>
                 <span>Configuración</span>
             </button>
 
-            <button class="nav-item" data-nav="perfil">
+            <button class="nav-item" type="button" data-nav="perfil">
                 <i class="fa-solid fa-user"></i>
                 <span>Perfil</span>
             </button>
+
         </nav>
     </div>
+
 
     <!-- MODAL DE TRANSACCIÓN -->
 
     <div class="modal-backdrop" id="transaction-modal" hidden>
         <form class="modal-card" id="transaction-form">
+
             <div class="modal-heading">
                 <div>
                     <p class="eyebrow">NUEVO MOVIMIENTO</p>
                     <h2>Agregar transacción</h2>
                 </div>
-                
-                <button type="button" class="icon-button close-modal" data-close-modal aria-label="Cerrar">
+
+                <button class="icon-button" type="button" data-close-modal aria-label="Cerrar">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <label>
-                Descripción
+            <label class="form-field">Descripción
                 <input id="transaction-description" type="text" placeholder="Ej. Compra del supermercado" required maxlength="60">
             </label>
 
-            <div class="form-row">
-                <label> 
-                    Tipo 
+            <div class="form-two-columns">
+                <label class="form-field">Tipo
                     <select id="transaction-type">
                         <option value="gasto">Gasto</option>
                         <option value="ingreso">Ingreso</option>
                     </select>
                 </label>
-                
-                <label>
-                    Monto
+
+                <label class="form-field">Monto
                     <input id="transaction-amount" type="number" min="0.01" step="0.01" placeholder="0.00" required>
                 </label>
             </div>
 
-            <label>
-                Categoría
+            <label class="form-field">Categoría
                 <select id="transaction-category">
-                    <option>Comida</option>
-                    <option>Transporte</option>
-                    <option>Compras</option>
-                    <option>Servicios</option>
-                    <option>Salario</option>
-                    <option>Otros</option>
+                    <option value="Comida">Comida</option>
+                    <option value="Transporte">Transporte</option>
+                    <option value="Compras">Compras</option>
+                    <option value="Salario">Salario</option>
+                    <option value="Hogar">Hogar</option>
+                    <option value="Otros">Otros</option>
                 </select>
             </label>
 
-            <label>
-                Fecha
+            <label class="form-field">Fecha
                 <input id="transaction-date" type="date" required>
             </label>
 
-            <button class="primary-button" type="submit">Guardar transacción</button>
+            <div class="modal-actions">
+                <button class="secondary-button" type="button" data-close-modal>Cancelar</button>
+                <button class="primary-button" type="submit">Guardar movimiento</button>
+            </div>
+
         </form>
     </div>
+
 
     <!-- MODAL DE PERFIL -->
 
@@ -521,21 +465,31 @@
                     <p class="eyebrow">DATOS PERSONALES</p>
                     <h2>Editar perfil</h2>
                 </div>
-                
-                <button type="button" class="icon-button close-modal" data-close-modal aria-label="Cerrar">
+
+                <button class="icon-button" type="button" data-close-modal aria-label="Cerrar">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <label>Nombre <input id="edit-profile-name" type="text" required maxlength="40"></label>
-            <label>Correo electrónico <input id="edit-profile-email" type="email" required></label>
-            <button class="primary-button" type="submit">Guardar cambios</button>
+            <label class="form-field">Nombre
+                <input id="edit-profile-name" type="text" maxlength="45" required>
+            </label>
+
+            <label class="form-field">Correo electrónico
+                <input id="edit-profile-email" type="email" required>
+            </label>
+
+            <div class="modal-actions">
+                <button class="secondary-button" type="button" data-close-modal>Cancelar</button>
+                <button class="primary-button" type="submit">Guardar cambios</button>
+            </div>
 
         </form>
     </div>
 
-    <input type="file" id="import-file" accept="application/json" hidden>
+    <!-- MENSAJE -->
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+    <script src="js/app.js" defer></script>
 </body>
 </html>

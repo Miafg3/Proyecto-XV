@@ -1,0 +1,346 @@
+:root {
+    --radius: 22px;
+    --red: #f52f4c;
+    --teal: #17b8ae;
+    --text: #101b49;
+    --green: #12bd68;
+    --muted: #8795b5;
+    --yellow: #ffd43b;
+    --purple: #8b35f5;
+    --border: #e4eaff;
+    --orange: #ff8a00;
+    --primary: #0865f5;
+    --surface: #ffffff;
+    --red-soft: #ffe6eb;
+    --text-soft: #52658f;
+    --background: #f5f7ff;
+    --green-soft: #dcf8eb;
+    --surface-soft: #f8faff;
+    --primary-soft: #e8efff;
+    --purple-soft: #eee5ff;
+    --shadow: 0 5px 18px rgba(39, 72, 145, .07);
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html { 
+    min-height: 100%; 
+    scroll-behavior: smooth; 
+}
+
+body {
+    min-width: 280px;
+    min-height: 100vh;
+    color: var(--text);
+    background: var(--background);
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+button, 
+input, 
+select { 
+    font: inherit; 
+}
+
+button { 
+    border: 0; 
+    cursor: pointer; 
+}
+
+button:focus-visible, 
+input:focus-visible, 
+select:focus-visible { 
+    outline: 3px solid rgba(8, 101, 245, .2); 
+    outline-offset: 2px; 
+}
+
+[hidden] { 
+    display: none !important; 
+}
+
+
+.app-shell {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 520px;
+    overflow: hidden;
+    min-height: 100vh;
+    background: var(--background);
+    padding-bottom: calc(82px + env(safe-area-inset-bottom));
+}
+
+.main-content { 
+    padding: 20px 16px 22px; 
+}
+
+.view { 
+    display: none; 
+    animation: fade-in .22s ease;
+}
+
+.view.active { 
+    display: block; 
+}
+
+@keyframes fade-in {
+
+    from { 
+        opacity: 0; 
+        transform: translateY(5px); 
+    }
+
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    height: 76px;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, .92);
+    border-bottom: 1px solid rgba(224, 232, 250, .75);
+    backdrop-filter: blur(16px);
+}
+
+.brand { 
+    display: flex; 
+    gap: 10px; 
+    font-size: 23px; 
+    font-weight: 800; 
+    color: var(--text); 
+    align-items: center; 
+    letter-spacing: -1.1px; 
+}
+
+.brand-mark { 
+    line-height: 1; 
+    font-size: 34px; 
+    color: var(--primary); 
+}
+
+.icon-button, 
+.round-action {
+    width: 46px; 
+    height: 46px;
+    display: flex;
+    flex-shrink: 0;
+    font-size: 20px;
+    color: var(--text);
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-soft);
+    box-shadow: 0 3px 10px rgba(8, 101, 245, .08);
+}
+
+.quick-menu {
+    position: absolute;
+    top: 65px;
+    right: 16px;
+    z-index: 50;
+    width: 225px;
+    padding: 8px;
+    border-radius: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 30px rgba(25, 48, 100, .15);
+}
+
+.quick-menu button { 
+    display: flex; 
+    gap: 12px; 
+    width: 100%; 
+    font-size: 13px; 
+    font-weight: 600; 
+    text-align: left; 
+    padding: 13px 12px; 
+    border-radius: 10px; 
+    align-items: center;
+    background: transparent; 
+    color: var(--text-soft); 
+}
+
+.quick-menu button:active { 
+    color: var(--primary); 
+    background: var(--primary-soft); 
+}
+
+
+.welcome-row { 
+    display: flex; 
+    gap: 12px; 
+    align-items: center; 
+    margin-bottom: 17px;
+    justify-content: space-between; 
+}
+
+.eyebrow { 
+    font-size: 9px; 
+    font-weight: 800; 
+    margin-bottom: 5px; 
+    color: var(--muted); 
+    letter-spacing: 1.15px; 
+}
+
+.welcome-row h1, 
+.page-heading h1 { 
+    color: var(--text); 
+    font-size: 25px; 
+    font-weight: 800; 
+    letter-spacing: -1px;
+}
+
+.date-label, 
+.page-heading > p:last-child { 
+    margin-top: 5px; 
+    font-size: 11px;
+    color: var(--text-soft); 
+}
+
+.round-action { 
+    width: 40px; 
+    height: 40px; 
+    color: #fff; 
+    font-size: 15px; 
+    border-radius: 13px; 
+    background: var(--primary); 
+}
+
+.page-heading { 
+    margin: 4px 0 22px; 
+}
+
+.page-heading h1 { 
+    font-size: 27px; 
+}
+
+.page-heading > p:last-child { 
+    font-size: 12px; 
+}
+
+
+.balance-card {
+    position: relative;
+    min-height: 174px;
+    padding: 22px 21px;
+    margin-bottom: 17px;
+    overflow: hidden;
+    border: 1px solid rgba(93, 157, 255, .18);
+    border-radius: 25px;
+    background: linear-gradient(115deg, #e4efff 0%, #cfe2ff 53%, #acd0ff 100%);
+    box-shadow: 0 8px 20px rgba(65, 125, 225, .1);
+}
+
+.balance-copy { 
+    position: relative; 
+    z-index: 2; 
+}
+
+.balance-copy > p { 
+    font-size: 17px; 
+    color: #13204d; 
+    font-weight: 500; 
+    margin-bottom: 5px; 
+}
+
+.balance-copy h2 { 
+    color: #101b49; 
+    font-weight: 800; 
+    letter-spacing: -1.8px; 
+    font-size: clamp(31px, 9vw, 39px); 
+}
+
+.balance-change { 
+    display: inline-flex; 
+    gap: 5px; 
+    margin-top: 7px; 
+    font-size: 17px; 
+    color: #0dbb58; 
+    font-weight: 800; 
+    align-items: center; 
+}
+
+.balance-wave { 
+    position: absolute; 
+    right: 0; 
+    bottom: 0; 
+    width: 65%; 
+    height: 90%; 
+    opacity: .8; 
+}
+
+
+.metric-grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    gap: 12px; 
+    margin-bottom: 18px; 
+}
+
+.metric-card { 
+    display: flex; 
+    gap: 11px; 
+    min-width: 0; 
+    min-height: 91px; 
+    padding: 13px 12px; 
+    border-radius: 21px; 
+    align-items: center; 
+}
+
+.income-card { 
+    background: linear-gradient(135deg, #e2faed, #c9f2df); 
+}
+
+.expense-card { 
+    background: linear-gradient(135deg, #f0eaff, #e2d9ff);
+}
+
+.metric-icon { 
+    display: flex; 
+    width: 55px; 
+    height: 55px; 
+    color: #fff; 
+    flex-shrink: 0; 
+    font-size: 24px; 
+    border-radius: 50%; 
+    align-items: center; 
+    justify-content: center; 
+    box-shadow: 0 5px 12px rgba(0, 0, 0, .08); 
+}
+
+.income-card .metric-icon { 
+    background: linear-gradient(145deg, #28d77d, #0dbb68); 
+}
+
+.expense-card .metric-icon { 
+    background: linear-gradient(145deg, #a43bff, #7b20e8); 
+}
+
+.metric-card p { 
+    font-size: 12px; 
+    font-weight: 600; 
+    margin-bottom: 4px; 
+    color: var(--text); 
+}
+
+.metric-card strong { 
+    display: block; 
+    font-weight: 800; 
+    color: var(--text); 
+    letter-spacing: -.5px; 
+    overflow-wrap: anywhere; 
+    font-size: clamp(15px, 4.2vw, 19px); 
+}
